@@ -10,7 +10,9 @@
     "presetup": "echo 'about to setup env variables, follow the guide here: https://github.com/vercel/next.js/tree/canary/examples/cms-sanity#using-the-sanity-cli'",
     "setup": "npx sanity@latest init --env .env.local",
     "postsetup": "echo 'create the read token by following the rest of the guide: https://github.com/vercel/next.js/tree/canary/examples/cms-sanity#creating-a-read-token'",
-    "typegen": "sanity schema extract && sanity typegen generate"
+    "typegen": "sanity schema extract && sanity typegen generate",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
     "@sanity/assist": "^3.0.4",
@@ -38,7 +40,23 @@
     "typescript": "5.4.5"
   },
   "devDependencies": {
+    "@chromatic-com/storybook": "1.5.0",
+    "@storybook/addon-essentials": "^8.1.4",
+    "@storybook/addon-interactions": "^8.1.4",
+    "@storybook/addon-links": "^8.1.4",
+    "@storybook/addon-onboarding": "^8.1.4",
+    "@storybook/blocks": "^8.1.4",
+    "@storybook/nextjs": "^8.1.4",
+    "@storybook/react": "^8.1.4",
+    "@storybook/test": "^8.1.4",
     "eslint": "^8.57.0",
-    "eslint-config-next": "latest"
+    "eslint-config-next": "latest",
+    "eslint-plugin-storybook": "^0.8.0",
+    "storybook": "^8.1.4"
+  },
+  "eslintConfig": {
+    "extends": [
+      "plugin:storybook/recommended"
+    ]
   }
 }
