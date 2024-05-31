@@ -1,5 +1,5 @@
-import React from 'react';
-import './button.css';
+import { ReactNode } from "react";
+import "./button.css";
 
 interface ButtonProps {
   /**
@@ -13,7 +13,7 @@ interface ButtonProps {
   /**
    * How large should the button be?
    */
-  size?: 'small' | 'medium' | 'large';
+  type?: "rounded" | "edged";
   /**
    * Button contents
    */
@@ -22,6 +22,7 @@ interface ButtonProps {
    * Optional click handler
    */
   onClick?: () => void;
+  icon?: ReactNode;
 }
 
 /**
@@ -29,19 +30,24 @@ interface ButtonProps {
  */
 export const Button = ({
   primary = false,
-  size = 'medium',
+  type = "edged",
   backgroundColor,
   label,
+  icon,
   ...props
 }: ButtonProps) => {
-  const mode = primary ? 'storybook-button--primary' : 'storybook-button--secondary';
+  const mode = primary ? "bg-primary" : "bg-secondary";
+  const rounded = type === "rounded" ? "rounded-[28px] px-6 py-3" : "px-8 py-4";
   return (
     <button
       type="button"
-      className={['storybook-button', `storybook-button--${size}`, mode].join(' ')}
+      className={`${rounded} ${mode} flex flex-row gap-5 items-center  text-white font-normal leading-6 focus:outline-none text-base focus:ring-primary focus:ring-none`}
       {...props}
     >
-      {label}
+      <span className="button-text-white">{label}</span>
+      {icon && (
+        <span className="flex items-center justify-center w-5 h-5">{icon}</span>
+      )}
       <style jsx>{`
         button {
           background-color: ${backgroundColor};

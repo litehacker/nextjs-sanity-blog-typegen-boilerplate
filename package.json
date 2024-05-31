@@ -20,6 +20,7 @@
     "@sanity/image-url": "^1.0.2",
     "@sanity/preview-url-secret": "^1.6.13",
     "@sanity/vision": "^3.43.0",
+    "@storybook/icons": "^1.2.9",
     "@tailwindcss/typography": "^0.5.13",
     "@types/node": "^20.12.12",
     "@types/react": "^18.3.2",

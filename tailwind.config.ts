@@ -9,6 +9,10 @@ export default {
         sans: ["var(--font-inter)"],
       },
     },
+    colors: {
+      primary: "#FF6E00",
+      secondary: "#222222",
+    },
   },
   future: {
     hoverOnlyWhenSupported: true,
